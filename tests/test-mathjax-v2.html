@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MathCopy — MathJax v2 Legacy Test Page</title>
+  <script>
+    // MathJax v2 configuration
+    window.MathJax = {
+      tex2jax: {
+        inlineMath:  [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+      },
+      TeX: {
+        equationNumbers: { autoNumber: 'AMS' },
+      },
+    };
+  </script>
+  <script defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <style>
+    body { font-family: Georgia, serif; font-size: 17px; line-height: 1.75;
+           max-width: 720px; margin: 60px auto; padding: 0 24px; color: #1a1a1a; }
+    h1 { font-size: 26px; margin-bottom: 6px; }
+    h2 { font-size: 18px; margin: 36px 0 10px; border-bottom: 1px solid #e5e7eb; padding-bottom: 6px; }
+    .note { background: #f0fdf4; border-left: 3px solid #16a34a; padding: 10px 16px;
+            font-size: 14px; margin-bottom: 32px; border-radius: 0 6px 6px 0; }
+    .dom-note { font-size: 12px; color: #6b7280; font-style: italic; margin-top: 8px; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #d1d5db; padding: 8px 14px; text-align: left; }
+    th { background: #f9fafb; font-weight: 600; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<h1>MathCopy — MathJax v2 Legacy Test Page</h1>
+<p class="note">
+  MathJax v2 stores LaTeX in <code>&lt;script type="math/tex"&gt;</code> sibling tags
+  whose <code>id</code> matches the rendered span's <code>id</code> minus the
+  <code>-Frame</code> suffix. MathCopy uses <code>extractMathJaxV2Source()</code>
+  to look up these script tags.
+</p>
+
+<!-- ================================================================ -->
+<h2>1. Inline Math</h2>
+
+<p>
+  The golden ratio is $\varphi = \frac{1 + \sqrt{5}}{2} \approx 1.618$, which satisfies
+  $\varphi^2 = \varphi + 1$. Successive ratios of Fibonacci numbers converge to $\varphi$.
+</p>
+
+<p>
+  In group theory, the order of an element $g$ in a group $G$ is the smallest positive
+  integer $n$ such that $g^n = e$, where $e$ denotes the identity element.
+</p>
+
+<p>
+  The sample variance is $s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$,
+  where $\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i$ is the sample mean.
+</p>
+
+<!-- ================================================================ -->
+<h2>2. Display Math</h2>
+
+<p>The fundamental theorem of calculus:</p>
+$$\int_a^b f(x)\, dx = F(b) - F(a) \quad \text{where } F'(x) = f(x)$$
+
+<p>Stokes' theorem, relating a surface integral to a line integral:</p>
+$$\iint_S (\nabla \times \mathbf{F}) \cdot d\mathbf{S} = \oint_{\partial S} \mathbf{F} \cdot d\mathbf{r}$$
+
+<p>The Basel problem, solved by Euler:</p>
+$$\sum_{n=1}^{\infty} \frac{1}{n^2} = \frac{\pi^2}{6}$$
+
+<p>The Navier–Stokes equation for incompressible flow:</p>
+$$\rho \left(\frac{\partial \mathbf{u}}{\partial t} + \mathbf{u} \cdot \nabla \mathbf{u}\right)
+  = -\nabla p + \mu \nabla^2 \mathbf{u} + \mathbf{f}$$
+
+<!-- ================================================================ -->
+<h2>3. Mixed Paragraph</h2>
+
+<p>
+  Let $f: [0,1] \to \mathbb{R}$ be Riemann integrable. The Riemann sum
+  $$S_n = \sum_{k=1}^{n} f(x_k^*)\, \Delta x_k$$
+  converges to $\int_0^1 f(x)\, dx$ as the mesh size $\|\Delta\| \to 0$,
+  regardless of the choice of sample points $x_k^* \in [x_{k-1}, x_k]$.
+</p>
+
+<!-- ================================================================ -->
+<h2>4. Math in a Table</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identity</th>
+      <th>Formula</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Euler's identity</td>
+      <td>$e^{i\pi} + 1 = 0$</td>
+    </tr>
+    <tr>
+      <td>De Moivre's theorem</td>
+      <td>$(\cos\theta + i\sin\theta)^n = \cos(n\theta) + i\sin(n\theta)$</td>
+    </tr>
+    <tr>
+      <td>AM–GM inequality</td>
+      <td>$\frac{a_1 + a_2 + \cdots + a_n}{n} \geq \sqrt[n]{a_1 a_2 \cdots a_n}$</td>
+    </tr>
+    <tr>
+      <td>Cauchy–Schwarz</td>
+      <td>$\left|\sum_i a_i b_i\right|^2 \leq \sum_i a_i^2 \cdot \sum_i b_i^2$</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ================================================================ -->
+<h2>5. Numbered Equations</h2>
+
+<p>The law of cosines generalizes the Pythagorean theorem:</p>
+$$c^2 = a^2 + b^2 - 2ab\cos C \tag{1}$$
+
+<p>Which reduces to $c^2 = a^2 + b^2$ when $C = 90°$, consistent with equation (1).</p>
+
+<p>
+  The logistic growth model:
+  $$\frac{dN}{dt} = rN\left(1 - \frac{N}{K}\right) \tag{2}$$
+  where $r$ is the intrinsic growth rate and $K$ is the carrying capacity.
+</p>
+
+<!-- ================================================================ -->
+<h2>6. Plain Text</h2>
+<p>
+  MathJax v2 is used on Stack Exchange and many older academic sites. This paragraph
+  has no math and should pass through to native copy behavior untouched.
+</p>
+
+<p class="dom-note">
+  DOM note: after MathJax v2 renders, each expression produces a
+  <code>.MathJax</code> span with an id like <code>MathJax-Element-N-Frame</code>,
+  plus a sibling <code>&lt;script type="math/tex"&gt;</code> with id
+  <code>MathJax-Element-N</code> containing the original LaTeX source.
+</p>
+
+</body>
+</html>

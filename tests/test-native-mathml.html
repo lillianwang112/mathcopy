@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MathCopy — Native MathML Test Page (Wikipedia-style)</title>
+  <style>
+    body { font-family: Georgia, serif; font-size: 17px; line-height: 1.8;
+           max-width: 720px; margin: 60px auto; padding: 0 24px; color: #1a1a1a; }
+    h1 { font-size: 26px; margin-bottom: 6px; }
+    h2 { font-size: 18px; margin: 36px 0 10px; border-bottom: 1px solid #e5e7eb; padding-bottom: 6px; }
+    .note { background: #fff7ed; border-left: 3px solid #f97316; padding: 10px 16px;
+            font-size: 14px; margin-bottom: 32px; border-radius: 0 6px 6px 0; }
+    /* Mimic Wikipedia's MathML display — hide the annotation from visual layout */
+    math { display: inline; }
+    math[display="block"] { display: block; text-align: center; margin: 1em 0; }
+    annotation { display: none; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #d1d5db; padding: 8px 14px; text-align: left; }
+    th { background: #f9fafb; font-weight: 600; font-size: 14px; }
+    .compat-note { font-size: 13px; color: #6b7280; font-style: italic; margin-top: 6px; }
+  </style>
+</head>
+<body>
+
+<h1>MathCopy — Native MathML Test Page</h1>
+<p class="note">
+  This page uses <strong>native browser MathML</strong> with embedded
+  <code>&lt;annotation encoding="application/x-tex"&gt;</code> tags, exactly as
+  Wikipedia renders math. No external library is loaded. MathCopy's
+  <code>extractNativeMathMLSource()</code> reads the annotation tag directly.
+  <br><br>
+  <strong>Browser compatibility:</strong> Native MathML rendering requires Firefox or
+  Safari. Chrome 109+ has partial support. The annotation extraction works in all
+  browsers regardless of whether the MathML renders visually.
+</p>
+
+<!-- ================================================================ -->
+<h2>1. Inline Native MathML</h2>
+
+<p>
+  Einstein's mass–energy equivalence,
+  <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="E=mc^{2}">
+    <semantics>
+      <mrow>
+        <mi>E</mi><mo>=</mo><mi>m</mi><msup><mi>c</mi><mn>2</mn></msup>
+      </mrow>
+      <annotation encoding="application/x-tex">E=mc^{2}</annotation>
+    </semantics>
+  </math>,
+  is perhaps the most recognized equation in physics.
+</p>
+
+<p>
+  The Pythagorean theorem states that
+  <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a^{2}+b^{2}=c^{2}">
+    <semantics>
+      <mrow>
+        <msup><mi>a</mi><mn>2</mn></msup>
+        <mo>+</mo>
+        <msup><mi>b</mi><mn>2</mn></msup>
+        <mo>=</mo>
+        <msup><mi>c</mi><mn>2</mn></msup>
+      </mrow>
+      <annotation encoding="application/x-tex">a^{2}+b^{2}=c^{2}</annotation>
+    </semantics>
+  </math>
+  for a right triangle with legs
+  <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="a, b">
+    <semantics>
+      <mrow><mi>a</mi><mo>,</mo><mi>b</mi></mrow>
+      <annotation encoding="application/x-tex">a, b</annotation>
+    </semantics>
+  </math>
+  and hypotenuse
+  <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="c">
+    <semantics><mi>c</mi><annotation encoding="application/x-tex">c</annotation></semantics>
+  </math>.
+</p>
+
+<p>
+  The natural logarithm base
+  <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="e \approx 2.71828">
+    <semantics>
+      <mrow><mi>e</mi><mo>&#x2248;</mo><mn>2.71828</mn></mrow>
+      <annotation encoding="application/x-tex">e \approx 2.71828</annotation>
+    </semantics>
+  </math>
+  satisfies
+  <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\ln(e) = 1">
+    <semantics>
+      <mrow><mo>ln</mo><mo>(</mo><mi>e</mi><mo>)</mo><mo>=</mo><mn>1</mn></mrow>
+      <annotation encoding="application/x-tex">\ln(e) = 1</annotation>
+    </semantics>
+  </math>.
+</p>
+
+<!-- ================================================================ -->
+<h2>2. Display Native MathML</h2>
+
+<p>The Gaussian integral:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
+      alttext="\int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}">
+  <semantics>
+    <mrow>
+      <msubsup>
+        <mo>&#x222B;</mo>
+        <mrow><mo>-</mo><mi>&#x221E;</mi></mrow>
+        <mi>&#x221E;</mi>
+      </msubsup>
+      <msup><mi>e</mi><mrow><mo>-</mo><msup><mi>x</mi><mn>2</mn></msup></mrow></msup>
+      <mi>d</mi><mi>x</mi>
+      <mo>=</mo>
+      <msqrt><mi>&#x03C0;</mi></msqrt>
+    </mrow>
+    <annotation encoding="application/x-tex">\int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}</annotation>
+  </semantics>
+</math>
+
+<p>The quadratic formula:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
+      alttext="x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}">
+  <semantics>
+    <mrow>
+      <mi>x</mi><mo>=</mo>
+      <mfrac>
+        <mrow>
+          <mo>-</mo><mi>b</mi><mo>&#xB1;</mo>
+          <msqrt>
+            <msup><mi>b</mi><mn>2</mn></msup>
+            <mo>-</mo><mn>4</mn><mi>a</mi><mi>c</mi>
+          </msqrt>
+        </mrow>
+        <mrow><mn>2</mn><mi>a</mi></mrow>
+      </mfrac>
+    </mrow>
+    <annotation encoding="application/x-tex">x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}</annotation>
+  </semantics>
+</math>
+
+<p>Euler's identity:</p>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"
+      alttext="e^{i\pi} + 1 = 0">
+  <semantics>
+    <mrow>
+      <msup><mi>e</mi><mrow><mi>i</mi><mi>&#x03C0;</mi></mrow></msup>
+      <mo>+</mo><mn>1</mn><mo>=</mo><mn>0</mn>
+    </mrow>
+    <annotation encoding="application/x-tex">e^{i\pi} + 1 = 0</annotation>
+  </semantics>
+</math>
+
+<!-- ================================================================ -->
+<h2>3. Mixed Paragraph with Multiple Inline Expressions</h2>
+
+<p>
+  For any integer
+  <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="n \geq 1">
+    <semantics>
+      <mrow><mi>n</mi><mo>&#x2265;</mo><mn>1</mn></mrow>
+      <annotation encoding="application/x-tex">n \geq 1</annotation>
+    </semantics>
+  </math>,
+  the sum of the first
+  <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="n">
+    <semantics><mi>n</mi><annotation encoding="application/x-tex">n</annotation></semantics>
+  </math>
+  positive integers is
+  <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\frac{n(n+1)}{2}">
+    <semantics>
+      <mfrac>
+        <mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>+</mo><mn>1</mn><mo>)</mo></mrow>
+        <mn>2</mn>
+      </mfrac>
+      <annotation encoding="application/x-tex">\frac{n(n+1)}{2}</annotation>
+    </semantics>
+  </math>.
+  This is Gauss's famous formula, which he reportedly derived at age 9.
+</p>
+
+<!-- ================================================================ -->
+<h2>4. Math in a Table</h2>
+
+<table>
+  <thead>
+    <tr><th>Constant</th><th>Symbol</th><th>Approximate value</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Pi</td>
+      <td><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\pi">
+        <semantics><mi>&#x03C0;</mi><annotation encoding="application/x-tex">\pi</annotation></semantics>
+      </math></td>
+      <td>3.14159&#x2026;</td>
+    </tr>
+    <tr>
+      <td>Euler's number</td>
+      <td><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="e">
+        <semantics><mi>e</mi><annotation encoding="application/x-tex">e</annotation></semantics>
+      </math></td>
+      <td>2.71828&#x2026;</td>
+    </tr>
+    <tr>
+      <td>Golden ratio</td>
+      <td><math xmlns="http://www.w3.org/1998/Math/MathML" alttext="\varphi = \frac{1+\sqrt{5}}{2}">
+        <semantics>
+          <mrow>
+            <mi>&#x03C6;</mi><mo>=</mo>
+            <mfrac>
+              <mrow><mn>1</mn><mo>+</mo><msqrt><mn>5</mn></msqrt></mrow>
+              <mn>2</mn>
+            </mfrac>
+          </mrow>
+          <annotation encoding="application/x-tex">\varphi = \frac{1+\sqrt{5}}{2}</annotation>
+        </semantics>
+      </math></td>
+      <td>1.61803&#x2026;</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ================================================================ -->
+<h2>5. Without Annotation Tag — Fallback Test</h2>
+
+<p>
+  This expression has <strong>no annotation tag</strong> — MathCopy should fall back to
+  native copy for this element and not produce garbled output.
+</p>
+
+<p>
+  The value of
+  <math xmlns="http://www.w3.org/1998/Math/MathML" alttext="sqrt(2)">
+    <semantics>
+      <mrow><msqrt><mn>2</mn></msqrt></mrow>
+      <!-- No annotation tag here intentionally -->
+    </semantics>
+  </math>
+  is approximately 1.414. Copy a selection containing only this (no-annotation) expression
+  and confirm that native copy proceeds without crashing.
+</p>
+
+<!-- ================================================================ -->
+<h2>6. Plain Text</h2>
+<p>
+  This paragraph is pure prose with no math elements of any kind. Copying it should
+  invoke native browser copy behavior. The selection will not contain any
+  <code>&lt;math&gt;</code> elements, so the quick-bail check exits immediately.
+</p>
+
+</body>
+</html>

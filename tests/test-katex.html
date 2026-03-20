@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MathCopy — KaTeX Test Page</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+    onload="renderMathInElement(document.body, {
+      delimiters: [
+        { left: '$$', right: '$$', display: true },
+        { left: '$', right: '$', display: false }
+      ]
+    });"></script>
+  <style>
+    body { font-family: Georgia, serif; font-size: 17px; line-height: 1.75;
+           max-width: 720px; margin: 60px auto; padding: 0 24px; color: #1a1a1a; }
+    h1 { font-size: 26px; margin-bottom: 6px; }
+    h2 { font-size: 18px; margin: 36px 0 10px; border-bottom: 1px solid #e5e7eb; padding-bottom: 6px; }
+    .note { background: #fef9c3; border-left: 3px solid #ca8a04; padding: 10px 16px;
+            font-size: 14px; margin-bottom: 32px; border-radius: 0 6px 6px 0; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #d1d5db; padding: 8px 14px; text-align: left; }
+    th { background: #f9fafb; font-weight: 600; font-size: 14px; }
+    code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px;
+           font-family: monospace; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+<h1>MathCopy — KaTeX Test Page</h1>
+<p class="note">
+  Load this page with the MathCopy extension enabled. Select text containing math
+  (or select across multiple paragraphs), press <strong>Ctrl+C / Cmd+C</strong>,
+  and paste into a plain-text editor to verify LaTeX output.
+</p>
+
+<!-- ================================================================ -->
+<h2>1. Inline Math</h2>
+
+<p>
+  Einstein's famous mass-energy equivalence is $E = mc^2$, where $m$ is rest mass
+  and $c \approx 3 \times 10^8 \text{ m/s}$ is the speed of light.
+</p>
+
+<p>
+  The derivative of sine is $\frac{d}{dx}\sin(x) = \cos(x)$, and by the chain rule,
+  $\frac{d}{dx}\sin(f(x)) = \cos(f(x)) \cdot f'(x)$.
+</p>
+
+<p>
+  Euler's identity $e^{i\pi} + 1 = 0$ connects five fundamental constants.
+  The general form is $e^{i\theta} = \cos\theta + i\sin\theta$.
+</p>
+
+<p>
+  For a right triangle with legs $a$ and $b$ and hypotenuse $c$,
+  the Pythagorean theorem states $a^2 + b^2 = c^2$.
+</p>
+
+<!-- ================================================================ -->
+<h2>2. Display Math</h2>
+
+<p>The Gaussian integral evaluates to:</p>
+$$\int_{-\infty}^{\infty} e^{-x^2}\, dx = \sqrt{\pi}$$
+
+<p>The Taylor series expansion of the exponential function:</p>
+$$e^x = \sum_{n=0}^{\infty} \frac{x^n}{n!} = 1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \cdots$$
+
+<p>Cauchy's integral formula from complex analysis:</p>
+$$f(a) = \frac{1}{2\pi i} \oint_{\gamma} \frac{f(z)}{z - a}\, dz$$
+
+<p>The quadratic formula solves $ax^2 + bx + c = 0$:</p>
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+
+<p>Maxwell's equations in differential form (Gauss's law for electricity):</p>
+$$\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}$$
+
+<!-- ================================================================ -->
+<h2>3. Mixed Text and Math</h2>
+
+<p>
+  The binomial theorem states that for any integer $n \geq 0$:
+  $$(x + y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^k$$
+  where the binomial coefficient is $\binom{n}{k} = \frac{n!}{k!(n-k)!}$.
+  Note that when $n = 2$ this gives $x^2 + 2xy + y^2$, the familiar perfect square.
+</p>
+
+<p>
+  Given $f: \mathbb{R} \to \mathbb{R}$ continuous on $[a, b]$ and differentiable
+  on $(a, b)$, the mean value theorem guarantees a point $c \in (a, b)$ such that
+  $f'(c) = \frac{f(b) - f(a)}{b - a}$.
+</p>
+
+<!-- ================================================================ -->
+<h2>4. Math in a Table</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Function</th>
+      <th>Derivative</th>
+      <th>Integral</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$x^n$</td>
+      <td>$nx^{n-1}$</td>
+      <td>$\dfrac{x^{n+1}}{n+1} + C$</td>
+    </tr>
+    <tr>
+      <td>$\sin x$</td>
+      <td>$\cos x$</td>
+      <td>$-\cos x + C$</td>
+    </tr>
+    <tr>
+      <td>$e^x$</td>
+      <td>$e^x$</td>
+      <td>$e^x + C$</td>
+    </tr>
+    <tr>
+      <td>$\ln x$</td>
+      <td>$\dfrac{1}{x}$</td>
+      <td>$x\ln x - x + C$</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ================================================================ -->
+<h2>5. Fractions and Multi-line Alignment</h2>
+
+<p>The Fourier transform of a function $f(t)$:</p>
+$$\hat{f}(\xi) = \int_{-\infty}^{\infty} f(t)\, e^{-2\pi i \xi t}\, dt$$
+
+<p>
+  Bayes' theorem: $P(A \mid B) = \dfrac{P(B \mid A)\, P(A)}{P(B)}$.
+  If the priors are uniform, the posterior is proportional to the likelihood.
+</p>
+
+<p>
+  The Schrödinger equation (time-dependent):
+  $$i\hbar \frac{\partial}{\partial t}\Psi(\mathbf{r}, t) =
+    \left[-\frac{\hbar^2}{2m}\nabla^2 + V(\mathbf{r}, t)\right]\Psi(\mathbf{r}, t)$$
+</p>
+
+<!-- ================================================================ -->
+<h2>6. Partial Selection Test</h2>
+<p>
+  Try selecting only the middle portion of this sentence: the energy levels of a
+  hydrogen atom are given by $E_n = -\frac{13.6 \text{ eV}}{n^2}$ for
+  $n = 1, 2, 3, \ldots$ — the extension should copy the full expression even if
+  you start your selection mid-equation.
+</p>
+
+<!-- ================================================================ -->
+<h2>7. Plain Text (No Math) — Should Native-Copy</h2>
+<p>
+  This paragraph contains no rendered math elements whatsoever — just plain prose.
+  Selecting and copying this text should bypass MathCopy entirely and produce a
+  verbatim copy of this sentence using the browser's native clipboard handler.
+</p>
+
+</body>
+</html>

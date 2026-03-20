@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MathCopy</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <span class="logo-symbol">&#x2211;</span>
+      <span class="logo-name">MathCopy</span>
+    </div>
+    <label class="toggle" title="Enable or disable MathCopy">
+      <input type="checkbox" id="enabled-toggle">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main id="settings" class="settings">
+
+    <div class="setting-group">
+      <span class="setting-label">Delimiter style</span>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="delimiter" value="dollar">
+          <span class="radio-custom"></span>
+          <span class="radio-text"><code>$...$</code> and <code>$$...$$</code></span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="delimiter" value="backslash">
+          <span class="radio-custom"></span>
+          <span class="radio-text"><code>\(...\)</code> and <code>\[...\]</code></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="setting-group">
+      <span class="setting-label">Display math spacing</span>
+      <div class="radio-group">
+        <label class="radio-option">
+          <input type="radio" name="displaySpacing" value="newlines">
+          <span class="radio-custom"></span>
+          <span class="radio-text">Paragraph breaks <em style="font-size:11px;color:#9ca3af">(recommended)</em></span>
+        </label>
+        <label class="radio-option">
+          <input type="radio" name="displaySpacing" value="spaces">
+          <span class="radio-custom"></span>
+          <span class="radio-text">Inline — no extra newlines</span>
+        </label>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <span id="status-msg"></span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

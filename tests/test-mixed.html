@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MathCopy — Mixed Library Test Page</title>
+
+  <!-- KaTeX -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+
+  <!-- MathJax v3 (configured to NOT conflict with KaTeX — render only within .mjx-zone) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']],
+      },
+      options: {
+        // Only process elements inside .mjx-zone to avoid re-rendering KaTeX output
+        includeHtmlTags: {},
+        ignoreHtmlClass: 'katex-rendered',
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Auto-render KaTeX only inside .katex-zone
+      document.querySelectorAll('.katex-zone').forEach(el => {
+        renderMathInElement(el, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+          ],
+        });
+      });
+    });
+  </script>
+
+  <style>
+    body { font-family: Georgia, serif; font-size: 17px; line-height: 1.8;
+           max-width: 760px; margin: 60px auto; padding: 0 24px; color: #1a1a1a; }
+    h1 { font-size: 26px; margin-bottom: 6px; }
+    h2 { font-size: 18px; margin: 40px 0 12px; border-bottom: 1px solid #e5e7eb; padding-bottom: 6px; }
+    h3 { font-size: 15px; font-weight: 600; margin: 24px 0 8px; color: #374151; }
+    .note { background: #fdf4ff; border-left: 3px solid #a855f7; padding: 10px 16px;
+            font-size: 14px; margin-bottom: 32px; border-radius: 0 6px 6px 0; }
+    .lib-tag { display: inline-block; font-size: 11px; font-weight: 700;
+               padding: 1px 7px; border-radius: 99px; vertical-align: middle;
+               letter-spacing: 0.04em; }
+    .lib-tag.katex { background: #fef9c3; color: #854d0e; }
+    .lib-tag.mjax  { background: #dbeafe; color: #1e40af; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #d1d5db; padding: 8px 14px; text-align: left; }
+    th { background: #f9fafb; font-weight: 600; font-size: 14px; }
+    pre { background: #1e1e1e; color: #d4d4d4; padding: 14px 18px; border-radius: 8px;
+          font-size: 13px; overflow-x: auto; margin: 16px 0; }
+    code { font-family: monospace; font-size: 13px; }
+    .divider { border: none; border-top: 2px dashed #e5e7eb; margin: 40px 0; }
+  </style>
+</head>
+<body>
+
+<h1>MathCopy — Mixed Library Test Page</h1>
+<p class="note">
+  This page intentionally mixes <strong>KaTeX-rendered</strong> and
+  <strong>MathJax v3-rendered</strong> math in the same document, alongside
+  plain prose, a code block with literal <code>$</code> signs, and a table.
+  Verifies that MathCopy correctly identifies each library and that plain-text
+  regions use native copy.
+</p>
+
+<!-- ================================================================ -->
+<h2>1. KaTeX Section <span class="lib-tag katex">KaTeX</span></h2>
+<div class="katex-zone">
+
+  <p>
+    In classical mechanics, the Lagrangian $L = T - V$ yields equations of motion via
+    the Euler–Lagrange equation. For a simple pendulum of length $\ell$:
+    $$L = \frac{1}{2}m\ell^2\dot{\theta}^2 - mg\ell(1 - \cos\theta)$$
+    For small oscillations ($\theta \ll 1$), $\cos\theta \approx 1 - \theta^2/2$,
+    so the period is $T = 2\pi\sqrt{\ell/g}$.
+  </p>
+
+  <p>
+    The infinite geometric series: $\sum_{k=0}^{\infty} r^k = \frac{1}{1-r}$ for $|r| < 1$.
+    Setting $r = 1/2$ gives $1 + \frac{1}{2} + \frac{1}{4} + \cdots = 2$.
+  </p>
+
+</div>
+
+<!-- ================================================================ -->
+<h2>2. MathJax v3 Section <span class="lib-tag mjax">MathJax v3</span></h2>
+<div class="mjx-zone">
+
+  <p>
+    The wave equation in one spatial dimension:
+    \[\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}\]
+    admits the general d'Alembert solution \(u(x,t) = f(x - ct) + g(x + ct)\),
+    where \(f\) and \(g\) are determined by initial conditions.
+  </p>
+
+  <p>
+    The spectral radius of a matrix \(A\) is
+    \(\rho(A) = \max\{|\lambda| : \lambda \text{ is an eigenvalue of } A\}\).
+    By Gelfand's formula: \(\rho(A) = \lim_{n\to\infty} \|A^n\|^{1/n}\).
+  </p>
+
+</div>
+
+<!-- ================================================================ -->
+<hr class="divider">
+<h2>3. Interleaved KaTeX + MathJax in One Paragraph</h2>
+
+<p>
+  Consider a system described by potential energy
+  <span class="katex-zone">$V(x) = \frac{1}{2}kx^2$</span>
+  (rendered with KaTeX). The corresponding quantum Hamiltonian is
+  <span class="mjx-zone">\(\hat{H} = -\frac{\hbar^2}{2m}\frac{d^2}{dx^2} + \frac{1}{2}m\omega^2 x^2\)</span>
+  (rendered with MathJax). Both should be extracted as LaTeX when the whole
+  sentence is selected and copied.
+</p>
+
+<!-- ================================================================ -->
+<h2>4. Mixed Table <span class="lib-tag katex">KaTeX</span></h2>
+<div class="katex-zone">
+<table>
+  <thead>
+    <tr>
+      <th>Concept</th>
+      <th>Expression</th>
+      <th>Domain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Euler's formula</td>
+      <td>$e^{i\theta} = \cos\theta + i\sin\theta$</td>
+      <td>$\theta \in \mathbb{R}$</td>
+    </tr>
+    <tr>
+      <td>Taylor remainder</td>
+      <td>$R_n(x) = \frac{f^{(n+1)}(c)}{(n+1)!}(x - a)^{n+1}$</td>
+      <td>$c$ between $a$ and $x$</td>
+    </tr>
+    <tr>
+      <td>Stirling's approx.</td>
+      <td>$n! \approx \sqrt{2\pi n}\left(\frac{n}{e}\right)^n$</td>
+      <td>$n \to \infty$</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ================================================================ -->
+<h2>5. Code Block with Literal Dollar Signs — Must NOT Trigger</h2>
+
+<p>
+  The following code block contains literal <code>$</code> characters in source text,
+  not rendered math elements. Copying this block should use native copy behavior.
+</p>
+<pre><code>// This is JavaScript, not math
+const price = $42.00;
+const formula = "$x^2 + y^2 = r^2$";  // string literal, NOT KaTeX
+function tex(s) { return `$${s}$`; }  // template literal
+</code></pre>
+
+<!-- ================================================================ -->
+<h2>6. Long Mixed Prose — Select Across Multiple Paragraphs</h2>
+<div class="katex-zone">
+
+<p>
+  The central limit theorem (CLT) states that for independent, identically distributed
+  random variables $X_1, X_2, \ldots, X_n$ with mean $\mu$ and variance $\sigma^2$,
+  the normalized sum
+  $$Z_n = \frac{\bar{X}_n - \mu}{\sigma/\sqrt{n}}$$
+  converges in distribution to the standard normal $\mathcal{N}(0, 1)$ as $n \to \infty$.
+</p>
+
+<p>
+  This is why many natural phenomena follow bell-curve distributions: any quantity
+  that is the sum of many small, independent contributions will be approximately
+  normally distributed, regardless of the distribution of those contributions —
+  as long as $\sigma^2 < \infty$.
+</p>
+
+<p>
+  The characteristic function of $X$ is $\varphi_X(t) = \mathbb{E}[e^{itX}]$.
+  For the normal distribution, $\varphi_X(t) = e^{i\mu t - \frac{\sigma^2 t^2}{2}}$.
+  The CLT follows by showing $\varphi_{Z_n}(t) \to e^{-t^2/2}$ pointwise.
+</p>
+
+</div>
+
+<!-- ================================================================ -->
+<h2>7. Plain Text Only — Native Copy</h2>
+
+<p>
+  This section deliberately avoids all math rendering. It exists to confirm that
+  the extension's fast-bail querySelector check correctly identifies that no
+  <code>.katex</code>, <code>mjx-container</code>, or <code>.MathJax</code>
+  elements are present in the selection, and returns without calling
+  <code>event.preventDefault()</code>.
+</p>
+
+</body>
+</html>

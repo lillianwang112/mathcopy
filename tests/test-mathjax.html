@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MathCopy — MathJax v3 Test Page</title>
+  <script>
+    // MathJax v3 configuration — must appear before the script is loaded
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        tags: 'ams',
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      },
+      // Enable assistive MathML (stores annotation tag → easiest extraction path)
+      assistiveMml: true,
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <style>
+    body { font-family: Georgia, serif; font-size: 17px; line-height: 1.75;
+           max-width: 720px; margin: 60px auto; padding: 0 24px; color: #1a1a1a; }
+    h1 { font-size: 26px; margin-bottom: 6px; }
+    h2 { font-size: 18px; margin: 36px 0 10px; border-bottom: 1px solid #e5e7eb; padding-bottom: 6px; }
+    .note { background: #eff6ff; border-left: 3px solid #3b82f6; padding: 10px 16px;
+            font-size: 14px; margin-bottom: 32px; border-radius: 0 6px 6px 0; }
+    table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+    th, td { border: 1px solid #d1d5db; padding: 8px 14px; text-align: left; }
+    th { background: #f9fafb; font-weight: 600; font-size: 14px; }
+    .warning { color: #92400e; background: #fef3c7; padding: 4px 8px; border-radius: 4px;
+               font-size: 13px; }
+  </style>
+</head>
+<body>
+
+<h1>MathCopy — MathJax v3 Test Page</h1>
+<p class="note">
+  MathJax v3 renders into <code>mjx-container</code> custom elements.
+  Primary extraction path: <code>&lt;annotation encoding="application/x-tex"&gt;</code>
+  inside <code>mjx-assistive-mml</code> (requires assistive MML to be enabled, which
+  it is by default). Fallback: MathJax internal API via page-context injection.
+</p>
+
+<!-- ================================================================ -->
+<h2>1. Inline Math</h2>
+
+<p>
+  The Lorentz factor is $\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}$, which approaches
+  infinity as $v \to c$. For everyday speeds where $v \ll c$, we have $\gamma \approx 1$.
+</p>
+
+<p>
+  A complex number $z = a + bi$ has modulus $|z| = \sqrt{a^2 + b^2}$ and argument
+  $\arg(z) = \arctan\!\left(\frac{b}{a}\right)$.
+</p>
+
+<p>
+  The entropy of a discrete random variable $X$ is $H(X) = -\sum_{i} p_i \log_2 p_i$,
+  measured in bits when the base-2 logarithm is used.
+</p>
+
+<!-- ================================================================ -->
+<h2>2. Display Math</h2>
+
+<p>The Euler–Lagrange equation:</p>
+$$\frac{\partial \mathcal{L}}{\partial q} - \frac{d}{dt}\frac{\partial \mathcal{L}}{\partial \dot{q}} = 0$$
+
+<p>The general solution to the heat equation $u_t = \alpha^2 u_{xx}$:</p>
+$$u(x, t) = \frac{1}{\sqrt{4\pi\alpha^2 t}} \int_{-\infty}^{\infty} f(\xi)\, e^{-\frac{(x-\xi)^2}{4\alpha^2 t}}\, d\xi$$
+
+<p>The Riemann zeta function:</p>
+$$\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p \text{ prime}} \frac{1}{1 - p^{-s}}, \quad \Re(s) > 1$$
+
+<p>Green's theorem in the plane:</p>
+$$\oint_C (P\, dx + Q\, dy) = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dA$$
+
+<!-- ================================================================ -->
+<h2>3. Mixed Paragraph</h2>
+
+<p>
+  Consider a vector space $V$ over a field $\mathbb{F}$. The dual space $V^*$ consists
+  of all linear maps $\varphi: V \to \mathbb{F}$. If $\dim V = n$, then
+  $\dim V^* = n$ as well. The natural pairing
+  $$\langle \varphi, v \rangle = \varphi(v), \quad \varphi \in V^*,\; v \in V$$
+  is bilinear and non-degenerate. This means for every nonzero $v \in V$ there exists
+  $\varphi \in V^*$ with $\varphi(v) \neq 0$.
+</p>
+
+<!-- ================================================================ -->
+<h2>4. Math in a Table</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Distribution</th>
+      <th>PDF / PMF</th>
+      <th>Mean</th>
+      <th>Variance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Normal $\mathcal{N}(\mu, \sigma^2)$</td>
+      <td>$\frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$</td>
+      <td>$\mu$</td>
+      <td>$\sigma^2$</td>
+    </tr>
+    <tr>
+      <td>Poisson $\text{Pois}(\lambda)$</td>
+      <td>$\frac{\lambda^k e^{-\lambda}}{k!}$</td>
+      <td>$\lambda$</td>
+      <td>$\lambda$</td>
+    </tr>
+    <tr>
+      <td>Binomial $B(n,p)$</td>
+      <td>$\binom{n}{k} p^k (1-p)^{n-k}$</td>
+      <td>$np$</td>
+      <td>$np(1-p)$</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ================================================================ -->
+<h2>5. Matrices and Aligned Equations</h2>
+
+<p>A $2 \times 2$ rotation matrix by angle $\theta$:</p>
+$$R(\theta) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta \end{pmatrix}$$
+
+<p>The determinant of a $3 \times 3$ matrix via cofactor expansion:</p>
+$$\det(A) = a_{11}(a_{22}a_{33} - a_{23}a_{32})
+           - a_{12}(a_{21}a_{33} - a_{23}a_{31})
+           + a_{13}(a_{21}a_{32} - a_{22}a_{31})$$
+
+<!-- ================================================================ -->
+<h2>6. Plain Text Baseline</h2>
+<p>
+  No math here — just a standard paragraph. Copying this should not trigger MathCopy.
+  The copy handler does a fast querySelector check and bails immediately on sections
+  with no rendered math elements.
+</p>
+
+</body>
+</html>
